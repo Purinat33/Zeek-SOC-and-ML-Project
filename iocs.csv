@@ -1,0 +1,15 @@
+indicator,type,confidence,role,evidence_count,evidence,source_screenshot
+10.1.17.215,ip_internal,high,suspected_victim_host,854,Top originating host in conn logs,image-4.png
+10.1.17.2,ip_internal,high,dns_server_or_gateway,512,Top destination host in conn logs (likely infra),image-5.png
+ping3.dymgate.com,domain,high,dns_beacon_candidate,344,High-frequency DNS queries from suspected victim,image-9.png
+wpad.bluemontuesday.com,domain,medium,wpad_lookup_suspicious_in_context,32,Repeated WPAD DNS queries from suspected victim,image-9.png
+5.252.153.241,ip,high,http_c2_or_stager,594,Top HTTP host contacted by victim; port 80/TCP connections observed,image-11.png; image-18.png
+/1517096937,url_path,high,beacon_endpoint,584,Repeated GETs to same path on 5.252.153.241,image-21.png
+/api/file/get-file/29842.ps1,url_path,medium-high,powershell_payload_retrieval,1,Victim HTTP request suggests PS script retrieval from 5.252.153.241,image-21.png
+/api/file/get-file/pas.ps1,url_path,medium-high,powershell_payload_retrieval,1,Victim HTTP request suggests PS script retrieval from 5.252.153.241,image-21.png
+/api/file/get-file/TeamViewer,url_path,medium,remote_tool_payload_retrieval,1,Victim HTTP request suggests TeamViewer-related download from 5.252.153.241,image-21.png
+/api/file/get-file/Teamviewer_Resource_fr,url_path,medium,remote_tool_resource_retrieval,1,Victim HTTP request suggests TeamViewer resource download from 5.252.153.241,image-21.png
+Mozilla/4.0 (compatible; MSIE 6.0; DynGate),user_agent,high,malware_associated_user_agent,21,Observed UA string from victim HTTP traffic,image-13.png
+master16.teamviewer.com,domain,medium,remote_admin_domain_observed,21,Victim HTTP host; also resolved via DNS,image-11.png; image-30.png
+185.188.32.26,ip,medium,resolved_from_master16_teamviewer,10,DNS A record for master16.teamviewer.com; victim connections observed,image-30.png; image-31.png; image-5.png
+45.125.66.32,ip,low-medium,external_peer_worth_pivot,9,Appears in top destination IPs; validate legitimacy before blocking,image-5.png
