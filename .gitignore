@@ -1,0 +1,9 @@
+pcap/*
+!pcap/.gitkeep
+
+zeek-json/*
+zeek-logs/*
+
+!zeek-json/.gitkeep
+!zeek-logs/.gitkeep
+
